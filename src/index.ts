@@ -1,3 +1,5 @@
 import TimePicker from "./components/TimePicker";
 
-export { TimePicker };
+module.exports = {
+  TimePicker,
+};
