@@ -1,2 +1,2 @@
 const TimePicker = require("./components/TimePicker").default;
-module.exports = { TimePicker };
+module.exports = TimePicker;
