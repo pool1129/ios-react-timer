@@ -2,8 +2,8 @@
   "name": "ios-react-time-picker",
   "version": "0.1.2",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/components/TimePicker.js",
+  "types": "dist/components/TimePicker.d.ts",
   "files": [
     "dist"
   ],
