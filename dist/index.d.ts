@@ -1,2 +1,1 @@
-import TimePicker from "./components/TimePicker";
-export { TimePicker };
+declare const TimePicker: any;
