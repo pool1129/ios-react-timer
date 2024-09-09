@@ -1,15 +1,9 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = TimeWheel;
-const react_1 = __importDefault(require("react"));
-const react_2 = require("react");
-function TimeWheel({ list, onChange, value }) {
-    const scrollRef = (0, react_2.useRef)(null);
-    const [isDrag, setIsDrag] = (0, react_2.useState)(false);
-    const [startY, setStartY] = (0, react_2.useState)(0);
+import React from "react";
+import { useEffect, useRef, useState } from "react";
+export default function TimeWheel({ list, onChange, value }) {
+    const scrollRef = useRef(null);
+    const [isDrag, setIsDrag] = useState(false);
+    const [startY, setStartY] = useState(0);
     const height = 28;
     const onDragStart = (e) => {
         e.preventDefault();
@@ -52,18 +46,18 @@ function TimeWheel({ list, onChange, value }) {
             });
         }
     };
-    (0, react_2.useEffect)(() => {
+    useEffect(() => {
         const items = scrollRef.current.querySelectorAll("li:not(.timer-empty)");
         const index = Array.from(items).findIndex((item) => item.textContent == (value === null || value === void 0 ? void 0 : value.toLowerCase()));
         onChangeScroll(index);
     }, [value]);
-    return (react_1.default.createElement("ul", { className: "timer-picker-list", ref: scrollRef, onMouseDown: onDragStart, onMouseMove: onDragMove, onMouseUp: onDragEnd, onMouseLeave: onDragEnd, onTouchStart: onDragStart, onTouchMove: onDragMove, onTouchEnd: onDragEnd },
-        react_1.default.createElement("li", { className: "timer-empty" }),
-        react_1.default.createElement("li", { className: "timer-empty" }),
+    return (React.createElement("ul", { className: "timer-picker-list", ref: scrollRef, onMouseDown: onDragStart, onMouseMove: onDragMove, onMouseUp: onDragEnd, onMouseLeave: onDragEnd, onTouchStart: onDragStart, onTouchMove: onDragMove, onTouchEnd: onDragEnd },
+        React.createElement("li", { className: "timer-empty" }),
+        React.createElement("li", { className: "timer-empty" }),
         list.map((ele, index) => {
-            return (react_1.default.createElement("li", { key: index, onClick: () => onChangeScroll(index) }, ele));
+            return (React.createElement("li", { key: index, onClick: () => onChangeScroll(index) }, ele));
         }),
-        react_1.default.createElement("li", { className: "timer-empty" }),
-        react_1.default.createElement("li", { className: "timer-empty" })));
+        React.createElement("li", { className: "timer-empty" }),
+        React.createElement("li", { className: "timer-empty" })));
 }
 //# sourceMappingURL=TimeWheel.js.map
