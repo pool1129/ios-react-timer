@@ -1,6 +1,6 @@
 {
   "name": "ios-react-time-picker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "description": "ios style time picker for React app.",
   "author": "pool1129 <pool1129@naver.com>",
