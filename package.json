@@ -1,52 +1,27 @@
 {
   "name": "ios-react-time-picker",
-  "version": "0.1.22",
-  "private": false,
+  "version": "0.1.14",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "browser": "./browser/specific/main.js",
   "files": [
-    "dist",
-    "dist/styles"
+    "dist"
   ],
   "exports": {
     ".": {
+      "default": "./dist/index.js",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/index.d.ts"
     }
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "prepare": "rm -rf dist && mkdir dist && tsc"
+    "build": "tsc && cp -R src/styles dist/styles", 
+    "prepublishOnly": "npm run build"
   },
   "description": "ios style time picker for React app.",
   "author": "pool1129 <pool1129@naver.com>",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pool1129/ios-react-timer"
-  },
-  "bugs": {
-    "url": "https://github.com/pool1129/ios-react-timer/issues",
-    "email": "pool1129@naver.com"
-  },
-  "homepage": "https://github.com/pool1129/ios-react-timer",
-  "keywords": [
-    "react time picker",
-    "time picker",
-    "ios time picker",
-    "time picker react ios",
-    "wheel time picker",
-    "wheel picker",
-    "select time",
-    "select ios time picker"
-  ],
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
