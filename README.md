@@ -33,13 +33,13 @@ export default const  MyApp = () => {
  
 ## Example
 
-| 12-hour      | 24-hour      |
-|--------------|--------------|
-| ![12hour demo](https://github.com/user-attachments/assets/bc853a99-6473-4d52-8d4a-beaf0d9ef025) | ![24hour demo](https://github.com/user-attachments/assets/5d7f234c-7ddd-4509-95f6-5105de7af567)      |
+| default      | 12-hour      | 24-hour      |
+|--------------|--------------|--------------|
+| ![12hour demo](https://github.com/user-attachments/assets/bc853a99-6473-4d52-8d4a-beaf0d9ef025) | ![12hour demo](https://github.com/user-attachments/assets/bc853a99-6473-4d52-8d4a-beaf0d9ef025) | ![24hour demo](https://github.com/user-attachments/assets/5d7f234c-7ddd-4509-95f6-5105de7af567)      |
 
 | 1-minutes      | 5-minutes      | 10-minutes     |
 |----------------|----------------|----------------|
-| ![1minutes demo](https://github.com/user-attachments/assets/75634664-631d-48fa-8fc1-8362c6c02fac) | ![5minutes demo](https://github.com/user-attachments/assets/d3368545-46e1-43fe-adcc-bc0c8b70cbe0) | ![10minutes demo](https://github.com/user-attachments/assets/dc9a1146-a7fa-43cf-b037-35a4cf2de925)     |
+| ![default demo](https://github.com/user-attachments/assets/857bf752-e152-4584-9abd-350d7da8a418) | ![5minutes demo](https://github.com/user-attachments/assets/481278a7-6805-4f51-a0d1-7580e9f89d86) | ![10minutes demo](https://github.com/user-attachments/assets/908fb450-df9c-447f-87cc-7144bfede183) |
 
  
 ## API
