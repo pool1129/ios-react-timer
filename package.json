@@ -7,7 +7,8 @@
   "types": "dist/index.d.ts",
   "browser": "./browser/specific/main.js",
   "files": [
-    "dist"
+    "dist",
+    "dist/styles"
   ],
   "exports": {
     ".": {
