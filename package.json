@@ -4,8 +4,21 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "description": "ios style time picker for React app.",
+  "author": "pool1129 <pool1129@naver.com>",
+  "license": "MIT",
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "react time picker",
+    "time picker",
+    "ios time picker",
+    "time picker react ios",
+    "wheel time picker",
+    "wheel picker",
+    "select time",
+    "select ios time picker"
   ],
   "exports": {
     ".": {
@@ -19,9 +32,6 @@
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
-  "description": "ios style time picker for React app.",
-  "author": "pool1129 <pool1129@naver.com>",
-  "license": "MIT",
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
