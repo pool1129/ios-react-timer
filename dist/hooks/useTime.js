@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const useTimer = () => {
     const getHourList = (interval = 12) => {
         let hourArr = Array.from({ length: interval }, (_, i) => i + 1);
@@ -14,5 +12,5 @@ const useTimer = () => {
         getMinList: getMinList,
     };
 };
-exports.default = useTimer;
+export default useTimer;
 //# sourceMappingURL=useTime.js.map
