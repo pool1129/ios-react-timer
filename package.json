@@ -16,7 +16,7 @@
     }
   },
   "scripts": {
-    "build": "tsc && cp -R src/styles dist/styles",
+    "build": "tsc",
     "prepublishOnly": "npm run build"
   },
   "description": "ios style time picker for React app.",
