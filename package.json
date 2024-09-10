@@ -1,6 +1,6 @@
 {
   "name": "ios-react-time-picker",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,7 +16,7 @@
     }
   },
   "scripts": {
-    "build": "tsc && cp -R src/styles dist/styles", 
+    "build": "tsc && cp -R src/styles dist/styles",
     "prepublishOnly": "npm run build"
   },
   "description": "ios style time picker for React app.",
