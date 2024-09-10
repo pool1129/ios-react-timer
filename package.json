@@ -7,6 +7,15 @@
   "description": "ios style time picker for React app.",
   "author": "pool1129 <pool1129@naver.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pool1129/ios-react-timer"
+  },
+  "bugs": {
+    "url": "https://github.com/pool1129/ios-react-timer/issues",
+    "email": "pool1129@naver.com"
+  },
+  "homepage": "https://github.com/pool1129/ios-react-timer",
   "files": [
     "dist"
   ],
