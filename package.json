@@ -1,10 +1,11 @@
 {
   "name": "ios-react-time-picker",
   "version": "0.1.18",
+  "private": false,
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "private": "false",
+  "browser": "./browser/specific/main.js",
   "files": [
     "dist"
   ],
@@ -17,8 +18,11 @@
     }
   },
   "scripts": {
-    "build": "tsc",
-    "prepublishOnly": "npm run build"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "prepare": "rm -rf dist && mkdir dist && tsc"
   },
   "description": "ios style time picker for React app.",
   "author": "pool1129 <pool1129@naver.com>",
