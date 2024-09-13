@@ -50,6 +50,7 @@ jobs:
 
       # 깃허브 봇으로 package.json 파일 version 을 git tag 버전으로 업데이트
       - name: Update package version
+        if: steps.extract_version.outputs.version != ''
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
@@ -59,6 +60,7 @@ jobs:
 
       # 업데이트 버전 commit / push
       - name: Commit updated package version
+        if: steps.extract_version.outputs.version != ''
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "[chore] update package version"
@@ -66,11 +68,13 @@ jobs:
 
       # git tab 신규 생성
       - name: Update git tag
+        if: steps.extract_version.outputs.version != ''
         run: |
           git tag -f ${{ steps.extract_version.outputs.version }}
           git push --force origin ${{ steps.extract_version.outputs.version }}
 
       # npm의 access token을 사용해 배포
       - run: npm publish
+        if: steps.extract_version.outputs.version != ''
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
