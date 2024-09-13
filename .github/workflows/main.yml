@@ -24,12 +24,12 @@ jobs:
       - name: Get version from commit message
         id: version
         run: |
-          version=$(echo "${{ steps.get_commit_message.outputs.message }}" | grep -oP 'v\d+\.\d+\.\d+')
+          version=$(echo "${{ steps.get_commit_message.outputs.message }}" | sed -n 's/.*\(v[0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p')
           echo "::set-output name=version::$version"
 
-      - name: Checkout version
+      - name: Check version
         run: |
-          if [ -z "${{ steps.extract_version.outputs.version }}" ]; then
+          if [ -z "${{ steps.version.outputs.version }}" ]; then
             echo "Version not found in commit message"
             exit 1
           fi
@@ -40,34 +40,34 @@ jobs:
           node-version: "20.3.0"
 
       # 인증토큰 .npmrc 파일에 설정
-      - name: setup npm auth
+      - name: Setup npm auth
         run: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ~/.npmrc
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       # 깃허브 봇으로 package.json 파일 version 을 git tag 버전으로 업데이트
-      - name: update package version
+      - name: Update package version
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          git tag -d ${{ github.ref_name }} || true
-          git push origin :refs/tags/${{ github.ref_name }} || true
-          npm version ${{ steps.semver.outputs.version }}
+          git tag -d ${{ steps.version.outputs.version }} || true
+          git push origin :refs/tags/${{ steps.version.outputs.version }} || true
+          npm version ${{ steps.version.outputs.version }}
 
       # 업데이트 버전 commit / push
-      - name: commit updated package version
+      - name: Commit updated package version
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "[chore] update package version"
           branch: main
 
       # git tab 신규 생성
-      - name: update git tag
+      - name: Update git tag
         run: |
           git tag -f ${{ github.ref_name }}
           git push --force origin ${{ github.ref_name }}
 
       # npm의 access token을 사용해 배포
-      - run: npm publish
+      - run: NPM publish
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
