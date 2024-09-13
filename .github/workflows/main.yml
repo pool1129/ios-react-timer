@@ -39,8 +39,8 @@ jobs:
           branch: main
       - name: update git tag
         run: |
-          git tag ${{ github.ref_name }} -f
-          git push origin ${{ github.ref_name }} -f
+          git tag -f ${{ github.ref_name }}
+          git push --force origin ${{ github.ref_name }}
       # npm의 access token을 사용해 배포
       - run: npm publish
         env:
