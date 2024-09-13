@@ -28,6 +28,11 @@ jobs:
         with:
           node-version: "20.3.0"
 
+      - name: Setup npm auth
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ~/.npmrc
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          
       # 깃허브 봇으로 package.json 파일 version 을 git tag 버전으로 업데이트
       - name: update package version
         run: |
