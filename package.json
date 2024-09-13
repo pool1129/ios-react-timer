@@ -4,7 +4,7 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "description": "ios style time picker for React app 🥳",
+  "description": "ios style time picker for React app.",
   "author": "pool1129 <pool1129@naver.com>",
   "license": "MIT",
   "repository": {
