@@ -9,7 +9,7 @@ jobs:
   release:
     permissions:
       # 저장소의 컨텐츠에 대한 읽기 권한 부여
-      contents: read
+      contents: write
       # 풀 리퀘스트에 관련된 작업에 쓰기 권한 부여
       pull-requests: write
       packages: write
