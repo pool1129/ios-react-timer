@@ -17,16 +17,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # 마지막 커밋 메세지 가져온 후 get_commit_message 변수에 저장
       - name: Get commit message
         id: get_commit_message
         run: echo "::set-output name=message::$(git log -1 --pretty=%B)"
 
+      # 커밋 메세지에서 버전 추출 후 extract_version 변수에 저장
       - name: Get version from commit message
         id: extract_version
         run: |
           version=$(echo "${{ steps.get_commit_message.outputs.message }}" | sed -n 's/.*\(v[0-9]\{1,\}\.[0-9]\{1,\}\.[0-9]\{1,\}\).*/\1/p')
           echo "::set-output name=version::$version"
 
+      # 버전 정보가 포함되어 있을 경우에만 publish 진행
       - name: Check version
         run: |
           if [ -z "${{ steps.extract_version.outputs.version }}" ]; then
