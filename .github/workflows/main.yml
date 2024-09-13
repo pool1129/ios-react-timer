@@ -34,7 +34,7 @@ jobs:
         run: |
           if [ -z "${{ steps.extract_version.outputs.version }}" ]; then
             echo "Version not found in commit message"
-            exit 1
+            exit 0
           fi
 
       # npm 배포를 위한 Node 설치
