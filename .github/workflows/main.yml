@@ -12,7 +12,6 @@ jobs:
       contents: write
       # 풀 리퀘스트에 관련된 작업에 쓰기 권한 부여
       pull-requests: write
-      packages: write
     runs-on: ubuntu-latest
     steps:
       # refs/tags/vX.Y.Z 형식의 태그에서 X.Y.Z 버전 번호만 출력해 version 변수에 저장
@@ -28,11 +27,12 @@ jobs:
         with:
           node-version: "20.3.0"
 
-      - name: Setup npm auth
+      # 인증토큰 .npmrc 파일에 설정
+      - name: setup npm auth
         run: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ~/.npmrc
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          
+
       # 깃허브 봇으로 package.json 파일 version 을 git tag 버전으로 업데이트
       - name: update package version
         run: |
