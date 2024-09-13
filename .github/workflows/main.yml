@@ -12,10 +12,11 @@ jobs:
       contents: write
       # 풀 리퀘스트에 관련된 작업에 쓰기 권한 부여
       pull-requests: write
+      id-token: write
     runs-on: ubuntu-latest
     steps:
       # refs/tags/vX.Y.Z 형식의 태그에서 X.Y.Z 버전 번호만 출력해 version 변수에 저장
-      - name: Get semantic version
+      - name: get semantic version
         id: semver
         run: echo "::set-output name=version::${GITHUB_REF#refs/tags/v}"
       - uses: actions/checkout@v4
