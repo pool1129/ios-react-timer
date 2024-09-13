@@ -68,6 +68,6 @@ jobs:
           git push --force origin ${{ steps.extract_version.outputs.version }}
 
       # npm의 access token을 사용해 배포
-      - run: NPM publish
+      - run: npm publish
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
