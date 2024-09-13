@@ -24,10 +24,13 @@ jobs:
       # npm 배포를 위한 Node 설치
       - uses: actions/setup-node@v3.6.0
         with:
-          node-version: '20.3.0'
-      # package.json 파일 version 을 git tag 버전으로 업데이트
+          node-version: '20.3.0'  
+      # 깃허브 봇으로 package.json 파일 version 을 git tag 버전으로 업데이트
       - name: update package version
-        run: npm version ${{ steps.semver.outputs.version }}
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          npm version ${{ steps.semver.outputs.version }}
       # 업데이트 버전 commit / push
       - name: commit updated package version
         uses: stefanzweifel/git-auto-commit-action@v4
