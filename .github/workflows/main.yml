@@ -53,4 +53,4 @@ jobs:
       # npm의 access token을 사용해 배포
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
