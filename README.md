@@ -1,5 +1,5 @@
 # ios-react-time-picker
-ios style time picker for React app 😎.
+😎 ios style time picker for React app 😎.
 
 <img src="https://github.com/user-attachments/assets/6a062b91-bc40-4772-b1bb-20cd7d486ba3" alt="ios-react-timer" width="400"/>
 
