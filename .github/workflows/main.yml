@@ -37,6 +37,12 @@ jobs:
         with:
           commit_message: '[chore] update package version'
           branch: main
+      # git tag가 존재할 경우 삭제
+      - name: delete exist tag
+        run: |
+          git tag -d ${{ github.ref_name }} || true
+          git push origin :refs/tags/${{ github.ref_name }} || true
+      # git tab 신규 생성
       - name: update git tag
         run: |
           git tag -f ${{ github.ref_name }}
